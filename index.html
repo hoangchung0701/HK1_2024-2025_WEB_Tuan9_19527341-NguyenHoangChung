@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    <div class="container border">
+        <div class="row-col-12">
+            <div class="row-col-12">
+                <h3>Đăng kí thông tin</h3>
+                <hr>
+            </div>
+            <form onsubmit="submitForm(event)">
+                <div class="form-group row">
+                    <label for="inputName" class="col-12"><b>Username</b></label>
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="inputName" id="username" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputName" class="col-12"><b>Password</b></label>
+                    <div class="col-12">
+                        <input type="password" class="form-control" name="inputName" id="passwd" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="" class="col-12"><b>Giới tính:</b></label>
+                  <div class="form-check ">
+                    <label class="form-check-label col-12">
+                      <input type="radio" class="form-check-input" name="gioitinh" id="" value="Nam" checked>
+                      Nam
+                    </label>
+                    <label class="form-check-label col-6 ">
+                        <input type="radio" class="form-check-input" name="gioitinh" id="" value="Nữ">
+                        Nữ
+                      </label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-12"><b>Sở thích:</b></label>
+                    <div class="form-check col-12">
+                      <label class="form-check-label col-12">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="Bún bò">
+                        Bún bò
+                      </label>
+                      <label class="form-check-label col-12">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="Cà phê">
+                        Cà phê
+                      </label>
+                      <label class="form-check-label col-12">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="Trà sữa">
+                        Trà sữa
+                      </label>
+                      <label class="form-check-label col-12">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="Bánh bao">
+                        Bánh bao
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="col-12 just-content-center  btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    function submitForm(event){
+        event.preventDefault();
+        let gioitinh;
+        let soThich = "";
+        let username = document.getElementById("username").value;
+        let passwd = document.getElementById("passwd").value;
+
+        document.querySelectorAll("input[type='radio']").forEach((radio)=>{
+            if(radio.checked){
+                gioitinh = radio.value;
+            }
+        })
+
+
+        document.querySelectorAll("input[type='checkbox']").forEach((checkbox)=>{
+            if(checkbox.checked){
+                soThich += checkbox.value + ","
+            }
+        })
+        localStorage.clear();
+        localStorage.setItem("username",username);
+        localStorage.setItem("passwd",passwd);
+        localStorage.setItem("gioitinh",gioitinh);
+        localStorage.setItem("sothich",soThich);
+        window.open("info.html");
+    }
+</script>
+</html>

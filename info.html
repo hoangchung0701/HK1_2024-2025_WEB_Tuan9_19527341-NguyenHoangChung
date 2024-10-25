@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/bootstrap.min.js"></script>
+    <title>Info</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Giới tính</th>
+                    <th>Sở thích</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row" id="1"></td>
+                    <td scope="row" id="2"></td>
+                    <td scope="row" id="3"></td>
+                    <td scope="row" id="4"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('1').innerText = localStorage.getItem('username');
+        document.getElementById('2').innerText = localStorage.getItem('passwd');
+        document.getElementById('3').innerText = localStorage.getItem('gioitinh');
+        document.getElementById('4').innerText = localStorage.getItem('sothich');
+    }, false);
+</script>
+</html>
